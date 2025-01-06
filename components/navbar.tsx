@@ -132,13 +132,72 @@ export const Navbar = () => {
 
 			<NavbarMenu className="bg-white">
 				<div className="flex flex-col gap-2 mx-4 mt-2">
-					{siteConfig.navMenuItems.map((item, index) => (
-						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link color={'primary'} href="#" size="lg">
-								{item.label}
-							</Link>
-						</NavbarMenuItem>
-					))}
+				{siteConfig.navMenuItems.map((item) =>
+						item.dropdownItems ? (
+							<Dropdown
+								key={item.label}
+								className="bg-white rounded-none text-primary"
+								data-hover="text-white"
+							>
+								<NavbarItem className='data-[hover=true]:transition-colors data-[hover=true]:bg-green data-[hover=true]:text-white'>
+									<DropdownTrigger>
+										<Button
+											disableRipple
+											className="font-medium text-lg data-[active=true]:text-primary data-[active=true]:font-medium px-0 bg-transparent text-primary"
+											endContent={<ChevronDown />}
+											radius="sm"
+										>
+											{item.label}
+										</Button>
+									</DropdownTrigger>
+								</NavbarItem>
+								<DropdownMenu
+									key={item.label}
+									aria-label={item.label}
+									className="w-[300px]"
+									itemClasses={{
+										base: 'gap-4',
+									}}
+								>
+									{item.dropdownItems.items.map((item) => (
+										<DropdownItem
+											key={item.label}
+											className="data-[hover=true]:bg-transparent data-[hover=true]:opacity-50 transition-all duration-100"
+										>
+											<NextLink
+												className={clsx(
+													linkStyles({
+														color: 'primary',
+														size: 'lg',
+													}),
+												)}
+												color="foreground"
+												href={item.href}
+											>
+												{item.label}
+											</NextLink>
+										</DropdownItem>
+									))}
+								</DropdownMenu>
+							</Dropdown>
+						) : (
+							<NavbarItem key={item.href}>
+								<NextLink
+									className={clsx(
+										linkStyles({
+											color: 'primary',
+											size: 'lg',
+										}),
+										'font-medium data-[active=true]:text-primary data-[active=true]:font-medium'
+									)}
+									color="foreground"
+									href={item.href}
+								>
+									{item.label}
+								</NextLink>
+							</NavbarItem>
+						)
+					)}
 				</div>
 			</NavbarMenu>
 		</NextUINavbar>
