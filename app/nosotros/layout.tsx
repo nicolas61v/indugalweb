@@ -1,13 +1,13 @@
-export default function PricingLayout({
+// app/nosotros/layout.tsx
+export default function NosotrosLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
-        {children}
-      </div>
-    </section>
+    <div className="min-h-screen bg-gray-50 pb-32">
+      {/* El pb-32 añade un padding bottom para evitar que el contenido se mezcle con el footer */}
+      {children}
+    </div>
   );
-}
+} 

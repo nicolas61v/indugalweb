@@ -1,34 +1,57 @@
+// components/carousel.tsx
 "use client";
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Shield, Clock, Award, Leaf } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
-interface Slide {
-  title: string;
+interface Stat {
+  value: string;
+  label: string;
+  icon: React.ReactNode;
+}
+
+interface CompanySection {
+  logo: string;
+  stats: Stat[];
   description: string;
-  bgImg: string;
 }
 
 const Carousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
-  const slides: Slide[] = [
+  const companies: CompanySection[] = [
     {
-      title: "Bienvenidos",
-      description: "Este es el primer slide de nuestra presentación",
-      bgImg: "/images/p1.jpg"
+      logo: "/logos/indugal-logo.png",
+      stats: [
+        { value: "20+", label: "Años de Experiencia", icon: <Clock className="w-6 h-6 text-primary mb-2" /> },
+        { value: "100%", label: "Garantía de Calidad", icon: <Shield className="w-6 h-6 text-primary mb-2" /> }
+      ],
+      description: "Especialistas en galvanización por inmersión en caliente"
     },
     {
-      title: "Características",
-      description: "Descubre todas nuestras características increíbles",
-      bgImg: "/images/p2.jpg"
+      logo: "/logos/logo-galvanizados.png",
+      stats: [
+        { value: "ISO", label: "Certificación 9001", icon: <Award className="w-6 h-6 text-primary mb-2" /> },
+        { value: "ECO", label: "Compromiso Verde", icon: <Leaf className="w-6 h-6 text-primary mb-2" /> }
+      ],
+      description: "Soluciones de protección contra la corrosión"
+    }
+  ];
+
+  const slides = [
+    {
+      bgImg: "/images/p1.jpg",
+      title: "Excelencia en Galvanizado"
     },
     {
-      title: "Conclusión",
-      description: "Gracias por su atención",
-      bgImg: "/images/p3.jpg"
+      bgImg: "/images/p2.jpg",
+      title: "Tecnología de Punta"
+    },
+    {
+      bgImg: "/images/p3.jpg",
+      title: "Compromiso con la Calidad"
     }
   ];
 
@@ -42,60 +65,75 @@ const Carousel: React.FC = () => {
     return () => clearInterval(autoSlideInterval);
   }, [currentSlide, isAnimating]);
 
-  const handleSlideChange = (newSlide: number): void => {
+  const handleSlideChange = (newSlide: number) => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide(newSlide);
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  const handleNextSlide = (): void => {
+  const handleNextSlide = () => {
     handleSlideChange((currentSlide + 1) % slides.length);
   };
 
-  const handlePrevSlide = (): void => {
+  const handlePrevSlide = () => {
     handleSlideChange((currentSlide - 1 + slides.length) % slides.length);
   };
 
   return (
-    <div className="w-full h-[500px] relative overflow-hidden rounded-lg">
+    <div className="w-full h-[600px] relative overflow-hidden">
       <div 
         className="flex w-full h-full transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-full h-full relative"
-          >
+          <div key={index} className="flex-shrink-0 w-full h-full relative">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 transition-all duration-500"
               style={{ backgroundImage: `url(${slide.bgImg})` }}
             />
             <div className="absolute inset-0 bg-black/30" />
+            
+            {/* Contenedor principal */}
             <div className="relative flex flex-col items-center justify-center h-full z-10">
-              <div className="w-[90%] h-[70%] bg-white/95 rounded-lg shadow-lg flex flex-col md:flex-row transform transition-all duration-500 hover:scale-105">
-                <div className="flex-1 flex flex-col items-center justify-center p-6 transition-all duration-300 hover:bg-gray-50">
-                  <div className="relative w-48 h-12">
-                    <Image
-                      alt="Indugal logo"
-                      src="/logos/indugal-logo.png"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
-                </div>
-                <div className="flex-1 flex flex-col items-center justify-center p-6 transition-all duration-300 hover:bg-gray-50">
-                  <div className="relative w-48 h-12">
-                    <Image
-                      alt="Galvanizados logo"
-                      src="/logos/logo-galvanizados.png"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
+              <h2 className="text-white text-4xl font-bold mb-8">{slide.title}</h2>
+              
+              <div className="w-[90%] max-w-6xl h-auto bg-white/95 rounded-lg shadow-lg p-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {companies.map((company, idx) => (
+                    <div key={idx} className="flex flex-col items-center space-y-6 p-6">
+                      {/* Logo */}
+                      <div className="relative w-48 h-16">
+                        <Image
+                          alt={`Logo ${idx + 1}`}
+                          src={company.logo}
+                          fill
+                          className="object-contain"
+                          priority
+                        />
+                      </div>
+
+                      {/* Descripción */}
+                      <p className="text-gray-600 text-center font-medium">
+                        {company.description}
+                      </p>
+
+                      {/* Estadísticas */}
+                      <div className="grid grid-cols-2 gap-6 w-full mt-4">
+                        {company.stats.map((stat, statIdx) => (
+                          <div key={statIdx} className="flex flex-col items-center text-center">
+                            {stat.icon}
+                            <div className="text-primary text-2xl font-bold">
+                              {stat.value}
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              {stat.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -103,13 +141,14 @@ const Carousel: React.FC = () => {
         ))}
       </div>
 
+      {/* Controles de navegación */}
       <button
         onClick={handlePrevSlide}
         disabled={isAnimating}
         className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 text-white backdrop-blur-sm
                  transition-all duration-300 hover:bg-white/20 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-6 h-6" />
       </button>
       
       <button
@@ -118,9 +157,10 @@ const Carousel: React.FC = () => {
         className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 text-white backdrop-blur-sm
                  transition-all duration-300 hover:bg-white/20 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-6 h-6" />
       </button>
 
+      {/* Indicadores de slide */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
         {slides.map((_, index) => (
           <button
