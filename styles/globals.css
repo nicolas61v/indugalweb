@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+a.nav-link{
+  transition: all 0.3s;
+}
+
+a.nav-link:hover, button.nav-link:hover{
+  opacity: 1 !important; 
+}
 
 li[role="menuitem"] > span{
   @apply text-sm font-medium ;
+}
+
+.isActive{
+  @apply text-white rounded-lg bg-primary;
 }
