@@ -4,7 +4,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon } from './icons'
 
 export const Footer = () => {
   return (
-    <footer className="w-full h-full max-h-[600px] bg-black">
+    <footer className="w-full h-full md:max-h-[600px] bg-black">
       <div className="flex flex-col items-start justify-center w-full h-full p-12 px-8 gap-y-10">
         <div className='p-4 space-y-6'>
           <div className='text-2xl font-bold'>
