@@ -15,19 +15,20 @@ export const siteConfig = {
     },
     {
       label: "Productos y servicios",
+      href: "/productos-y-servicios",
       dropdownItems:{
         items: [
           {
             label: "Galvanizado en caliente",
-            href: "/galvanizado-en-caliente",
+            href: "/productos-y-servicios/galvanizado-en-caliente",
           },
           {
             label: "Galvanizado en frio",
-            href: "/galvanizado-en-frio",
+            href: "/productos-y-servicios/galvanizado-en-frio",
           },
           {
             label: "Procesos especiales",
-            href: "/procesos-especiales",  
+            href: "/productos-y-servicios/procesos-especiales",  
           }
         ]
       }
@@ -52,6 +53,7 @@ export const siteConfig = {
     },
     {
       label: "Productos y servicios",
+      href: "/productos-y-servicios",
       dropdownItems:{
         items: [
           {

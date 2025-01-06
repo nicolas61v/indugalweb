@@ -67,7 +67,7 @@ export const Navbar = () => {
 									<DropdownTrigger className='h-full p-3 rounded hover:text-white hover:bg-primary'>
 										<Button
 											disableRipple
-											className="nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary"
+											className={`nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary ${actualPath.includes(item.href) ? 'isActive' : ''}`}
 											endContent={<ChevronDown />}
 											radius="sm"
 										>
@@ -93,6 +93,7 @@ export const Navbar = () => {
 													linkStyles({
 														color: 'primary',
 														size: 'lg',
+														className: 'w-full',
 													}),
 												)}
 												color="foreground"
@@ -148,7 +149,7 @@ export const Navbar = () => {
 									<DropdownTrigger className='h-full p-3 rounded hover:text-white hover:bg-primary'>
 										<Button
 											disableRipple
-											className="nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary"
+											className={`nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary ${actualPath.includes(item.href) ? 'isActive' : ''}`}
 											endContent={<ChevronDown />}
 											radius="sm"
 										>
