@@ -1,17 +1,16 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import Carrousel from "@/components/carrousel";
+import Location from "@/components/location";
 
 export default function Inicio() {
   return (
-    <section className="flex flex-col items-center justify-center">
-      <Carrousel/>
-    </section>
+    <>
+      <section className="flex flex-col items-center justify-center">
+        <Carrousel/>
+      </section>
+      <section className="flex flex-col items-center justify-center">
+        <Location/>
+      </section>
+    </>
+
   );
 }

@@ -34,8 +34,8 @@ export const siteConfig = {
       }
     },
     {
-      label: "Información técnica",
-      href: "/informacion-tecnica",
+      label: "Certificaciones",
+      href: "/certificaciones",
     },
     {
       label: "Nosotros",
@@ -72,8 +72,8 @@ export const siteConfig = {
       }
     },
     {
-      label: "Información técnica",
-      href: "/informacion-tecnica",
+      label: "Certificaciones",
+      href: "/certificaciones",
     },
     {
       label: "Nosotros",
