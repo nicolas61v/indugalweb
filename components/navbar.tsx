@@ -64,7 +64,7 @@ export const Navbar = () => {
 								data-hover="text-white"
 							>
 								<NavbarItem className='data-[hover=true]:transition-colors data-[hover=true]:bg-green data-[hover=true]:text-white'>
-									<DropdownTrigger className='h-full p-3 rounded-xl hover:text-white hover:bg-primary'>
+									<DropdownTrigger className='h-full p-3 rounded hover:text-white hover:bg-primary'>
 										<Button
 											disableRipple
 											className="nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary"
@@ -114,7 +114,7 @@ export const Navbar = () => {
 											color: 'primary',
 											size: 'lg',
 										}),
-										`nav-link rounded-xl font-medium hover:text-white p-3 hover:bg-primary ${actualPath === item.href ? 'isActive' : ''}`
+										`nav-link rounded font-medium hover:text-white p-3 hover:bg-primary ${actualPath === item.href ? 'isActive' : ''}`
 									)}
 									color="foreground"
 									href={item.href}
@@ -145,7 +145,7 @@ export const Navbar = () => {
 								data-hover="text-white"
 							>
 								<NavbarItem className='data-[hover=true]:transition-colors data-[hover=true]:bg-green data-[hover=true]:text-white'>
-									<DropdownTrigger className='h-full p-3 rounded-xl hover:text-white hover:bg-primary'>
+									<DropdownTrigger className='h-full p-3 rounded hover:text-white hover:bg-primary'>
 										<Button
 											disableRipple
 											className="nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary"
@@ -195,7 +195,7 @@ export const Navbar = () => {
 											color: 'primary',
 											size: 'lg',
 										}),
-										'nav-link rounded-xl font-medium hover:text-white p-3 hover:bg-primary'
+										'nav-link rounded font-medium hover:text-white p-3 hover:bg-primary'
 									)}
 									color="foreground"
 									href={item.href}
