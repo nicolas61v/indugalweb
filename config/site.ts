@@ -1,69 +1,56 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "GalvaGroup",
+  description: "Expertos en galvanizado industrial. Tu solución en protección contra la corrosión.",
   navItems: [
     {
-      label: "Home",
+      label: "Inicio",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Servicios",
+      href: "/servicios",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Nosotros",
+      href: "/nosotros",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Portafolio",
+      href: "/portafolio",
     },
     {
-      label: "About",
+      label: "Contacto",
       href: "/about",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Inicio",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Servicios",
+      href: "/servicios",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Nosotros",
+      href: "/nosotros",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Portafolio",
+      href: "/portafolio",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "Contacto",
+      href: "/about",
     },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    facebook: "#",
+    twitter: "#",
+    linkedin: "#",
+    instagram: "#",
   },
 };
