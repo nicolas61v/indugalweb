@@ -132,7 +132,7 @@ export const Navbar = () => {
 
 			<NavbarMenu className="bg-white">
 				<div className="flex flex-col gap-2 mx-4 mt-2">
-				{siteConfig.navMenuItems.map((item) =>
+					{siteConfig.navMenuItems.map((item) =>
 						item.dropdownItems ? (
 							<Dropdown
 								key={item.label}
