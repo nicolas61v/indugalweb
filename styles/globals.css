@@ -15,5 +15,5 @@ li[role="menuitem"] > span{
 }
 
 .isActive{
-  @apply text-white rounded-lg bg-primary;
+  @apply text-white rounded bg-primary;
 }
