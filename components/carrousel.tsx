@@ -1,28 +1,27 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import React, { useState } from 'react';
-// import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Carrousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Sample slides data - replace with your own content
   const slides = [
     {
       title: "Bienvenidos",
       description: "Este es el primer slide de nuestra presentación",
-      bgColor: "bg-gray-500"
+      bgImg: "/images/p1.jpg"
     },
     {
       title: "Características",
       description: "Descubre todas nuestras características increíbles",
-      bgColor: "bg-green-500"
+      bgImg: "/images/p2.jpg"
     },
     {
       title: "Conclusión",
       description: "Gracias por su atención",
-      bgColor: "bg-purple-500"
+      bgImg: "/images/p3.jpg"
     }
   ];
 
@@ -35,43 +34,52 @@ const Carrousel = () => {
   };
 
   return (
-    <div className="w-full h-[calc(100vh-64px)] sm:h-[calc(100vh-88px)] relative overflow-hidden shadow-lg">
+    <div className="w-full h-[700px] relative overflow-hidden shadow-lg">
       <div 
-        className="h-full w-full flex transition-transform duration-500 ease-in-out"
+        className="flex w-full h-full transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`w-full h-full flex-shrink-0 ${slide.bgColor} flex flex-col items-center justify-center text-white p-8`}
+            style={{ 
+              backgroundImage: `url(${slide.bgImg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'top'
+            }}
+            className="flex flex-col items-center justify-center flex-shrink-0 w-full h-full p-8 text-white"
           >
-            <h2 className="text-4xl font-bold mb-4">{slide.title}</h2>
-            <p className="text-xl text-center">{slide.description}</p>
+            <div className='flex flex-row w-[80%] h-[80%] bg-white/90'>
+              <div className='flex flex-col items-center justify-center flex-1'>
+                <Image alt='Indugal logo' src={'/logos/indugal-logo.png'} width={250} height={55} />
+              </div>
+              <div className='flex flex-col items-center justify-center flex-1'>
+                <Image alt='Galvanizados logo' src={'/logos/logo-galvanizados.png'} width={250} height={55} />
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Navigation buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+        className="absolute p-2 text-white transition-all -translate-y-1/2 bg-opacity-50 rounded-full bg-primary left-4 top-1/2 hover:bg-opacity-75"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+        className="absolute p-2 text-white transition-all -translate-y-1/2 bg-opacity-50 rounded-full bg-primary right-4 top-1/2 hover:bg-opacity-75"
       >
         <ChevronRight size={24} />
       </button>
 
-      {/* Dots indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute flex gap-2 -translate-x-1/2 bottom-4 left-1/2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
+            className={`w-3 h-3 mb-2 rounded-full transition-all ${
               currentSlide === index ? 'bg-white scale-125' : 'bg-white/50'
             }`}
           />
