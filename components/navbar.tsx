@@ -15,7 +15,6 @@ import {
 	Dropdown,
 	DropdownMenu,
 } from '@nextui-org/dropdown';
-import { Link } from '@nextui-org/link';
 import { link as linkStyles } from '@nextui-org/theme';
 import NextLink from 'next/link';
 import clsx from 'clsx';
@@ -23,8 +22,12 @@ import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import { Button } from '@nextui-org/button';
 import { ChevronDown } from 'lucide-react';
+import { usePathname} from 'next/navigation';
 
 export const Navbar = () => {
+	
+	const actualPath = usePathname();
+
 	return (
 		<NextUINavbar
 			className="sticky bg-white"
@@ -52,19 +55,19 @@ export const Navbar = () => {
 				className="hidden lg:flex basis-1/5 sm:basis-full"
 				justify="end"
 			>
-				<ul className="items-center justify-start hidden gap-4 ml-2 sm:flex">
+				<ul className="items-center justify-start hidden gap-4 ml-2 uppercase sm:flex">
 					{siteConfig.navItems.map((item) =>
 						item.dropdownItems ? (
 							<Dropdown
 								key={item.label}
-								className="bg-white rounded-none text-primary"
+								className="bg-white text-primary"
 								data-hover="text-white"
 							>
 								<NavbarItem className='data-[hover=true]:transition-colors data-[hover=true]:bg-green data-[hover=true]:text-white'>
-									<DropdownTrigger>
+									<DropdownTrigger className='h-full p-3 rounded-xl hover:text-white hover:bg-primary'>
 										<Button
 											disableRipple
-											className="font-medium text-lg data-[active=true]:text-primary data-[active=true]:font-medium px-0 bg-transparent text-primary"
+											className="nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary"
 											endContent={<ChevronDown />}
 											radius="sm"
 										>
@@ -102,14 +105,16 @@ export const Navbar = () => {
 								</DropdownMenu>
 							</Dropdown>
 						) : (
-							<NavbarItem key={item.href}>
+							<NavbarItem 
+								key={item.href}
+								>								
 								<NextLink
 									className={clsx(
 										linkStyles({
 											color: 'primary',
 											size: 'lg',
 										}),
-										'font-medium data-[active=true]:text-primary data-[active=true]:font-medium'
+										`nav-link rounded-xl font-medium hover:text-white p-3 hover:bg-primary ${actualPath === item.href ? 'isActive' : ''}`
 									)}
 									color="foreground"
 									href={item.href}
@@ -131,19 +136,19 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarMenu className="bg-white">
-				<div className="flex flex-col gap-2 mx-4 mt-2">
+				<div className="flex flex-col gap-2 mx-4 mt-2 uppercase">
 				{siteConfig.navMenuItems.map((item) =>
 						item.dropdownItems ? (
 							<Dropdown
 								key={item.label}
-								className="bg-white rounded-none text-primary"
+								className="bg-white text-primary"
 								data-hover="text-white"
 							>
 								<NavbarItem className='data-[hover=true]:transition-colors data-[hover=true]:bg-green data-[hover=true]:text-white'>
-									<DropdownTrigger>
+									<DropdownTrigger className='h-full p-3 rounded-xl hover:text-white hover:bg-primary'>
 										<Button
 											disableRipple
-											className="font-medium text-lg data-[active=true]:text-primary data-[active=true]:font-medium px-0 bg-transparent text-primary"
+											className="nav-link uppercase font-medium text-lg data-[active=true]:text-primary aria-expanded:opacity-100 aria-expanded:bg-primary aria-expanded:text-white data-[active=true]:bg-primary data-[active=true]:font-medium bg-transparent text-primary"
 											endContent={<ChevronDown />}
 											radius="sm"
 										>
@@ -181,14 +186,16 @@ export const Navbar = () => {
 								</DropdownMenu>
 							</Dropdown>
 						) : (
-							<NavbarItem key={item.href}>
+							<NavbarItem 
+								key={item.href}
+							>
 								<NextLink
 									className={clsx(
 										linkStyles({
 											color: 'primary',
 											size: 'lg',
 										}),
-										'font-medium data-[active=true]:text-primary data-[active=true]:font-medium'
+										'nav-link rounded-xl font-medium hover:text-white p-3 hover:bg-primary'
 									)}
 									color="foreground"
 									href={item.href}
