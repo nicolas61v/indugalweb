@@ -11,15 +11,12 @@ import { Link } from '@nextui-org/link';
 import { link as linkStyles } from '@nextui-org/theme';
 import NextLink from 'next/link';
 import clsx from 'clsx'; 
-import { TopBar } from './top-bar';
 import { siteConfig } from '@/config/site';
 // import { ThemeSwitch } from '@/components/theme-switch';
 import { Logo, FacebookIcon, LinkedinIcon, InstagramIcon, XIcon } from '@/components/icons';
 
 export const Navbar = () => {
 	return (
-		<>
-		<TopBar/>
 		<NextUINavbar className="bg-black/20 sticky" maxWidth="xl" >
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -103,6 +100,5 @@ export const Navbar = () => {
 				</div>
 			</NavbarMenu>
 		</NextUINavbar>
-		</>
 	);
 };
