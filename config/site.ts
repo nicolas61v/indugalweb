@@ -1,3 +1,4 @@
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -13,20 +14,35 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Servicios",
-      href: "/servicios",
+      label: "Productos y servicios",
+      dropdownItems:{
+        items: [
+          {
+            label: "Galvanizado en caliente",
+            href: "/galvanizado-en-caliente",
+          },
+          {
+            label: "Galvanizado en frio",
+            href: "/galvanizado-en-frio",
+          },
+          {
+            label: "Procesos especiales",
+            href: "/procesos-especiales",  
+          }
+        ]
+      }
+    },
+    {
+      label: "Información técnica",
+      href: "/informacion-tecnica",
     },
     {
       label: "Nosotros",
       href: "/nosotros",
     },
     {
-      label: "Portafolio",
-      href: "/portafolio",
-    },
-    {
       label: "Contacto",
-      href: "/about",
+      href: "/contacto",
     },
   ],
   navMenuItems: [
@@ -35,20 +51,35 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Servicios",
-      href: "/servicios",
+      label: "Productos y servicios",
+      dropdownItems:{
+        items: [
+          {
+            label: "Galvanizado en caliente",
+            href: "/galvanizado-en-caliente",
+          },
+          {
+            label: "Galvanizado en frio",
+            href: "/galvanizado-en-frio",
+          },
+          {
+            label: "Procesos especiales",
+            href: "/procesos-especiales",  
+          }
+        ]
+      }
+    },
+    {
+      label: "Información técnica",
+      href: "/informacion-tecnica",
     },
     {
       label: "Nosotros",
       href: "/nosotros",
     },
     {
-      label: "Portafolio",
-      href: "/portafolio",
-    },
-    {
       label: "Contacto",
-      href: "/about",
+      href: "/contacto",
     },
   ],
   links: {
