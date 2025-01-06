@@ -12,29 +12,33 @@ import { link as linkStyles } from '@nextui-org/theme';
 import NextLink from 'next/link';
 import clsx from 'clsx'; 
 import { siteConfig } from '@/config/site';
-// import { ThemeSwitch } from '@/components/theme-switch';
-import { Logo, FacebookIcon, LinkedinIcon, InstagramIcon, XIcon } from '@/components/icons';
+import Image from 'next/image';
 
 export const Navbar = () => {
 	return (
-		<NextUINavbar className="bg-black/20 sticky" maxWidth="xl" >
+		<NextUINavbar className="sticky bg-white" maxWidth="2xl" height={'6rem'}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink
-						className="flex justify-start items-center gap-1"
+						className="flex items-center justify-start gap-1 transition-all duration-100 hover:scale-110"
 						href="/"
 					>
-						<Logo />
-						<p className="font-bold text-inherit">GalvaGroup</p>
+						<Image alt='GalvaGroup logo' src={'/logos/galvagroup-logo.png'} width={190} height={55} />
 					</NextLink>
 				</NavbarBrand>
-				<ul className="hidden sm:flex gap-4 justify-start ml-2">
+			</NavbarContent>
+
+			<NavbarContent
+				className="hidden md:flex basis-1/5 sm:basis-full"
+				justify="end"
+			>
+				<ul className="justify-start hidden gap-4 ml-2 sm:flex">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
 								className={clsx(
-									linkStyles({ color: 'foreground' }),
-									'data-[active=true]:text-primary data-[active=true]:font-medium'
+									linkStyles({ color: 'primary', size: 'lg'}),
+									'font-medium data-[active=true]:text-primary data-[active=true]:font-medium'
 								)}
 								color="foreground"
 								href={item.href}
@@ -46,53 +50,16 @@ export const Navbar = () => {
 				</ul>
 			</NavbarContent>
 
-			<NavbarContent
-				className="hidden md:flex basis-1/5 sm:basis-full"
-				justify="end"
-			>
-				<NavbarItem className="hidden sm:flex gap-2">
-					<Link
-						isExternal
-						aria-label="Facebook"
-						href={siteConfig.links.facebook}
-					>
-						<FacebookIcon className="text-white" />
-					</Link>
-					<Link
-						isExternal
-						aria-label="Linkedin"
-						href={siteConfig.links.linkedin}
-					>
-						<LinkedinIcon className="text-white" />
-					</Link>
-					<Link
-						isExternal
-						aria-label="X"
-						href={siteConfig.links.twitter}
-					>
-						<XIcon className="text-white" />
-					</Link>
-					<Link
-						isExternal
-						aria-label="Instagram"
-						href={siteConfig.links.instagram}
-					>
-						<InstagramIcon className="text-white" />
-					</Link>
-					{/* <ThemeSwitch /> */}
-				</NavbarItem>
-			</NavbarContent>
-
-			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+			<NavbarContent className="pl-4 font-bold sm:hidden basis-1 text-primary" justify="end">
 				{/* <ThemeSwitch /> */}
 				<NavbarMenuToggle />
 			</NavbarContent>
 
-			<NavbarMenu>
-				<div className="mx-4 mt-2 flex flex-col gap-2">
+			<NavbarMenu className='bg-white'>
+				<div className="flex flex-col gap-2 mx-4 mt-2">
 					{siteConfig.navMenuItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link color={'foreground'} href="#" size="lg">
+							<Link color={'primary'} href="#" size="lg">
 								{item.label}
 							</Link>
 						</NavbarMenuItem>
