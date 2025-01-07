@@ -39,7 +39,7 @@ module.exports = {
             DEFAULT: '#ffffff',
           },
           foreground: {
-            DEFAULT: '#ffffff',
+            DEFAULT: '#28338c',
           },
         }
       }

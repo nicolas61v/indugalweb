@@ -7,7 +7,7 @@ export default function Inicio() {
       <section className="flex flex-col items-center justify-center">
         <Carrousel/>
       </section>
-      <section className="flex flex-col items-center justify-center">
+      <section id="contacto" className="flex flex-col items-center justify-center">
         <Location/>
       </section>
     </>
