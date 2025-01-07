@@ -1,5 +1,6 @@
 import { Clock, Mail, MapPin, Phone, PhoneCall } from "lucide-react";
 import Image from "next/image";
+import { FormContact } from "./form-contact";
 
 const Location: React.FC = () => {
 	return (
@@ -86,7 +87,7 @@ const Location: React.FC = () => {
                 <div className="flex items-center mb-4">
                   <h3 className="text-xl font-bold text-primary">Solicitud de Servicio</h3>
                 </div>
-                <p className="text-sm text-gray-600">Inmersión en caliente sobre hierro y acero, garantizando la máxima protección contra la corrosión.</p>
+                <FormContact/>
               </div>
             </div>
           </div>
