@@ -5,7 +5,7 @@ export default function NosotrosLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-gray-50 pb-32">
+    <div className="min-h-screen bg-gray-50">
       {/* El pb-32 añade un padding bottom para evitar que el contenido se mezcle con el footer */}
       {children}
     </div>
