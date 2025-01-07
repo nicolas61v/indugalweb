@@ -38,7 +38,7 @@ export const Footer = () => {
             </NextLink>
           </div>
           <p className="mt-4 text-center text-gray-300 text-md md:text-left">
-            Galvanizados Industriales del Aburrá SAS - Industrias y Galvanizados SAS
+            Galva group Cial S.A.S
           </p>
         </div>
         <div className="flex flex-col items-center justify-center w-full mb-8 md:w-1/3 md:items-start md:mb-0">
