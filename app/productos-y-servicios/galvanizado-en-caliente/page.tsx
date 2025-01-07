@@ -30,7 +30,15 @@ export default function GalvanizadoCalientePage() {
               </p>
               <p>
                 Cada 90 segundos, en todo el mundo, una tonelada de hierro se consume por la corrosión y de cada dos
-                toneladas de hierro producido, una es para reemplazar el corroído.
+                toneladas de hierro producido, una es para reemplazar el corroído. Al proteger una tonelada de hierro contra
+                la corrosión por galvanización en caliente, se ahorra suficiente energía para satisfacer las necesidades de
+                una familia mediana durante varias semanas.
+              </p>
+              <p>
+                El galvanizado por inmersión en caliente representa el uso más eficiente de zinc para proteger el hierro y
+                el acero durante largos períodos, lo que significa un ahorro de recursos con un impacto mínimo en el medio ambiente.
+                El zinc, el elemento natural responsable de la resistencia a la corrosión, es esencial para los seres humanos,
+                animales y plantas.
               </p>
             </div>
 
