@@ -76,6 +76,7 @@ const Location: React.FC = () => {
                   </div>
                 </div>
                 <iframe 
+                title="Ubicación sede principal"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2!2d-75.5672!3d6.2442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428f!2sCl.+36+%2352-50%2C+La+Candelaria%2C+Medell%C3%ADn%2C+Antioquia!5e0!3m2!1ses!2sco!4v1"
                   width="100%" 
                   height="250" 
